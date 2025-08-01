@@ -907,20 +907,20 @@ function open_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Funktionsdatei auswählen
+% Funktionsdatei auswÃ¤hlen
 [file,path] = uigetfile({'*.cdp','CDPA Datei (*.cdp)'},handles.title);
 
 % falls nicht abgebrochen
 if (file)
-    % vollständiger Dateiname
+    % vollstÃ¤ndiger Dateiname
     handles.file = fullfile(path,file);
     
-    %file öffnen
+    %file Ã¶ffnen
     fid = fopen(handles.file,'r');
 
-    %falls Öffnen nicht funktioniert
+    %falls Ã–ffnen nicht funktioniert
     if (fid==-1)
-        warndig(['Die Datei ', handle.file, 'kann nicht geöffnet werden!'],...
+        warndig(['Die Datei ', handle.file, 'kann nicht geÃ¶ffnet werden!'],...
             handles.title);
         return
     end
@@ -947,7 +947,7 @@ if (file)
         handles.edit_beta.String = fscanf(fid,'%s',1);
         
         fclose(fid)
-    % Menüpunkt save einschalten
+    % MenÃ¼punkt save einschalten
     handles.save.Enable = 'on';
          
     % handles save
@@ -962,12 +962,12 @@ function save_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%file öffnen
+%file Ã¶ffnen
 fid = fopen(handles.file,'wt');
 
-%falls Öffnen nicht funktioniert
+%falls Ã–ffnen nicht funktioniert
 if (fid==-1)
-    warndig(['Die Datei ', handle.file, 'kann nicht geöffnet werden!'],...
+    warndig(['Die Datei ', handle.file, 'kann nicht geÃ¶ffnet werden!'],...
         handles.title);
     return
 end
@@ -994,7 +994,7 @@ fprintf(fid,'%s\n',handles.edit_beta.String);
 
 fclose(fid);
 
-% Menüpunkt save einschalten
+% MenÃ¼punkt save einschalten
 handles.save.Enable = 'on';
 
 % --------------------------------------------------------------------
@@ -1003,12 +1003,12 @@ function save_as_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Funktionsdatei auswählen
+% Funktionsdatei auswÃ¤hlen
 [file,path] = uiputfile({'*.cdp','CDPA Datei (*.cdp)'},handles.title);
 
 % falls nicht abgebrochen
 if (file)
-    % vollständiger Dateiname
+    % vollstÃ¤ndiger Dateiname
     handles.file = fullfile(path,file);
     % und save
     save_Callback(handles.save,eventdata,handles);
@@ -1030,18 +1030,18 @@ global st_iu_out
 
 global omt_iu_out
 
-% Funktionsdatei auswählen
+% Funktionsdatei auswÃ¤hlen
 [file,path] = uiputfile({'*.txt','Textdatei (*.txt)'},handles.title);
 
 % falls nicht abgebrochen
 if (file)
-    % vollständiger Dateiname
+    % vollstÃ¤ndiger Dateiname
     handles.file = fullfile(path,file);
           
-    %file öffnen
+    %file Ã¶ffnen
     fid = fopen(handles.file,'wt');
 
-    %falls Öffnen nicht funktioniert
+    %falls Ã–ffnen nicht funktioniert
     if (fid==-1)
         warndig(['The file ', handle.file, 'can not be opended!'],...
             handles.title);
